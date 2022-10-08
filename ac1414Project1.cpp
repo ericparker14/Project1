@@ -19,17 +19,17 @@ int main() {
     bool continueOn = true;
     char next;
     
+    
     cout << "Please enter an odd number: "; 
     cin >> length;
     
-    while ((length % 2) == 0){
-        cout << "Number is not Odd.\nPlease enter an odd number: ";
-        cin >> length;
-	}
+    	while ((length % 2) ==0) {
+	    cout << "Number is not Odd. Please enter an odd number: "; 	cin >> length;
+	    } 
     do{
-        cout << "What shape would you like to create with a length of "<<length<<"?\n(1) Square\n(2) Triangle\n(3) Pentagon\n(4) Sentence\n(5) Quit\nChoose an option: ";
-        cin >> userChoice;
-        choice = static_cast<Shape>(userChoice);
+    
+        	cout << "What shape would you like to create:\n(1) Square\n(2) Triangle\n(3) Pentagon\n(4) Sentence\n(5) Quit\n";	cin >> userChoice;
+	        choice = static_cast<Shape>(userChoice);
         
             srand(time(0));
 	        signs = (rand() % 32) + 33;
@@ -74,6 +74,7 @@ int main() {
 		        else { continue; }/* Ask user to continue program. If not, end program */
             break;
         default:
+		    cout << "Invalid input. Please enter a valid input.\n";
             /* Error message */
             break;}
    } while (continueOn == true);
