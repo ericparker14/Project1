@@ -15,7 +15,7 @@ int main() {
     int signs;
     char sign;
     Shape choice;
-    int Userchoice;
+    int userChoice;
     bool continueOn = true;
     char next;
     
@@ -66,7 +66,7 @@ int main() {
             /* Sentence for animation */
             break;
         case Quit:
-            cout << "Would you like to quit the program? y/n"
+            cout << "Would you like to quit the program? y/n";
             cin >> next;
                 if(next	== 'n') {
 			        continueOn = false;
@@ -74,8 +74,9 @@ int main() {
 		        else { continue; }/* Ask user to continue program. If not, end program */
             break;
         default:
+		    cout << "Invalid input. Please enter a valid input.\n";
             /* Error message */
-            break;
+            break;}
    } while (continueOn == true);
         cout << "Goodbye!\n";
 
