@@ -15,7 +15,7 @@ int main() {
     int signInt;
     char signChar;
     Shape choice;
-    int userChoice;
+    int Userchoice;
     bool continueOn = true;
     char next;
     
@@ -31,55 +31,53 @@ int main() {
         cin >> userChoice;
         choice = static_cast<Shape>(userChoice);
         
-        /* seeded random number 33 to 64 inclusive */
-        srand(time(0));
-        signInt = (rand() % 32) + 33;
-        signChar = signInt;
-        
-        switch (choice){
-            case Square: /* Generate a Square */
-                for(int k = 0; k < length; k++){
-                    system("clear");
-                    for(int i = 0; i <= k; i++){ /* rows */
-                        for(int j = 0; j <= k; j++){ /* columns */
-                            cout << signChar;
-                        }
-                        cout << endl;
-                    }
-                    sleep(1);
-                }
-                cout << "Would you like to continue? (y/n): ";
-                cin >> next;
-                next = tolower(next);
-                if(next	== 'n'){
-                    continueOn = false;
-                }
-                else{
-                    continue;
-                }
-                break;
-            case Triangle: /* Generate a Triangle */
-                break;
-            case Pentagon: /* Generate a Pentagon */
-                break;
-            case Sentence: /* Sentence for animation */
-                break;
-            case Quit:
-                cout << "Would you like to quit the program? (y/n): ";
-                cin >> next;
-                if(next	== 'n'){ /* Ask user to continue program. If not, end program */
-                    continueOn = false;
-                }
-		        else{
-                    continue;
-                }
-                break;
-            default: /* Error message */
-                cout << "Invalid input. Please enter a valid input.\n";
-                break;}
-    }while(continueOn == true);
-    
-    cout << "Goodbye!\n";
-    
-    return 0;
+            srand(time(0));
+	        signs = (rand() % 32) + 33;
+	        sign = signs;  /* seeded random number 33 to 64 inclusive */
+
+    switch (choice) {
+        case Square:
+            
+		    for(int k = 0; k < length; k++){
+		        system("clear");
+			    for(int i = 0; i <= k; i++) { // rows
+				    for(int j = 0; j <= k; j++) { //columns
+					    cout << sign;		}
+			        cout << endl;			}
+		        sleep(1);		}
+		
+		    cout << "Would you like to continue: y/n\n"; 
+		    cin >> next;
+		    next = tolower(next);
+		        if(next	== 'n') {
+			        continueOn = false;
+		            
+		        }
+		        else { continue; }
+	
+		    break; /* Generate a Square */
+        case Triangle:
+            /* Generate a Triangle */
+            break;
+        case Pentagon:
+            /* Generate a Pentagon */
+            break;
+        case Sentence:
+            /* Sentence for animation */
+            break;
+        case Quit:
+            cout << "Would you like to quit the program? y/n"
+            cin >> next;
+                if(next	== 'n') {
+			        continueOn = false;
+		        }
+		        else { continue; }/* Ask user to continue program. If not, end program */
+            break;
+        default:
+            /* Error message */
+            break;
+   } while (continueOn == true);
+        cout << "Goodbye!\n";
+
+   return 0;
 }
