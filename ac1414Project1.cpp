@@ -5,19 +5,57 @@
  */
 
 #include <iostream>
+#include <unistd.h>
+#include <cctype>
 using namespace std;
 
 int main() {
-    int length;
-    cin >> length; //must be odd. if even, ask again until odd.
     enum Shape {Square=1, Triangle=2, Pentagon=3, Sentence=4, Quit=5};
+    int length;
+    int signs;
+    char sign;
+    Shape choice;
+    int Userchoice;
+    bool continueOn = true;
+    char next;
     
-    /* seeded random number 33 to 64 inclusive */
+    
+    cout << "Please enter an odd number: "; 
+    cin >> length;
+    
+    	while ((length % 2) ==0) {
+	    cout << "Number is not Odd. Please enter an odd number: "; 	cin >> length;
+	    } 
+    do{
+    
+        	cout << "What shape would you like to create:\n(1) Square\n(2) Triangle\n(3) Pentagon\n(4) Sentence\n(5) Quit\n";	cin >> userChoice;
+	        choice = static_cast<Shape>(userChoice);
+        
+            srand(time(0));
+	        signs = (rand() % 32) + 33;
+	        sign = signs;  /* seeded random number 33 to 64 inclusive */
 
-    switch (length) {
+    switch (choice) {
         case Square:
-            /* Generate a Square */
-            break;
+            
+		    for(int k = 0; k < length; k++){
+		        system("clear");
+			    for(int i = 0; i <= k; i++) { // rows
+				    for(int j = 0; j <= k; j++) { //columns
+					    cout << sign;		}
+			        cout << endl;			}
+		        sleep(1);		}
+		
+		    cout << "Would you like to continue: y/n\n"; 
+		    cin >> next;
+		    next = tolower(next);
+		        if(next	== 'n') {
+			        continueOn = false;
+		            
+		        }
+		        else { continue; }
+	
+		    break; /* Generate a Square */
         case Triangle:
             /* Generate a Triangle */
             break;
@@ -28,12 +66,18 @@ int main() {
             /* Sentence for animation */
             break;
         case Quit:
-            /* Ask user to continue program. If not, end program */
+            cout << "Would you like to quit the program? y/n"
+            cin >> next;
+                if(next	== 'n') {
+			        continueOn = false;
+		        }
+		        else { continue; }/* Ask user to continue program. If not, end program */
             break;
         default:
             /* Error message */
             break;
-   }
+   } while (continueOn == true);
+        cout << "Goodbye!\n";
 
    return 0;
 }
