@@ -9,7 +9,7 @@
 #include <cctype>
 using namespace std;
 
-int main(){
+int main() {
     enum Shape {Square=1, Triangle=2, Pentagon=3, Sentence=4, Quit=5};
     int length;
     int signInt;
