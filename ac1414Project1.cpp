@@ -12,10 +12,10 @@ using namespace std;
 int main() {
     enum Shape {Square=1, Triangle=2, Pentagon=3, Sentence=4, Quit=5};
     int length;
-    int signInt;
-    char signChar;
+    int signs;
+    char sign;
     Shape choice;
-    int Userchoice;
+    int userChoice;
     bool continueOn = true;
     char next;
     
@@ -66,7 +66,7 @@ int main() {
             /* Sentence for animation */
             break;
         case Quit:
-            cout << "Would you like to quit the program? y/n"
+            cout << "Would you like to quit the program? y/n";
             cin >> next;
                 if(next	== 'n') {
 			        continueOn = false;
@@ -75,7 +75,7 @@ int main() {
             break;
         default:
             /* Error message */
-            break;
+            break;}
    } while (continueOn == true);
         cout << "Goodbye!\n";
 
