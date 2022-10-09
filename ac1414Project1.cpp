@@ -1,14 +1,13 @@
-/*  Authors:
- * ac1414
- * ame0205 - Amanda English (amandaenglish3@my.unt.edu)
- * etp0040
- * Date: 10/08/2022
+/* Authors: ac1414
+ *          ame0205 - Amanda English (amandaenglish3@my.unt.edu)
+ *          etp0040
+ * Date: 2022-10-09
  * Instructor: Dr. Pradhumna Shrestha
- * Description: Recieves input from user for the size of the shape, length, then the user is asked
- * what shape they would like to create. The users options are enumerated variables (Square, Triangle,
- * Pentagon, Sentence, and Quit). The program enters a do-while loop once the length is entered,
- * The shape is created and user is asked to continue. If yes the loop will continue, if no the 
- * loop will terminate and a exit message is displayed exiting the program.
+ * Description: Recieves input from user for the size of the shape ("length"). The program enters a do-while loop once "length"
+ *              is entered. The user is then asked what shape they would like to create. The user's options are enumerated
+ *              variables ("Square", "Triangle", "Pentagon", "Sentence", and "Quit") of the data type "Shape". The shape is
+ *              created and user is asked if they want to continue. If yes, the do-while loop will continue. If no, the do-while
+ *              loop will terminate and the program will exit, displaying an exit message.
  */
 
 #include <iostream>
@@ -27,44 +26,59 @@ int main() {
     char next;
     
     system("clear");
-    cout << "Welcome to Create a Shape!\nPlease enter an odd number: "; 
+    cout << "Welcome to 'Create a Shape'!\n";
+    cout << "Please enter an odd number: ";
     cin >> length;
     
-    while ((length % 2) == 0){ // checks if length entered is odd. If not, the loop will continue asking for an odd number until one is entered.
+    while ((length % 2) == 0){ // If number is even, the loop will continue asking for an odd number until one is entered.
         system("clear");
-        cout << "Number is not odd.\nPlease enter an odd number: ";
+        cout << "That is not an odd number.\n";
+        cout << "Please enter an odd number: ";
         cin >> length;
 	}
+    
     system("clear");
-    do{ /* Function: Do-While loop - continue with program. 
-	 * Parameters: Boolean continueOn = false than the loop will exit, if continueOn = true the loop will continue.
-	 * Return: A shape of size length 
-	 * Description: This function Generates a square, triangle, or pentagon base on length. Or a sentence is entered in which
-	 * all the digits are progressively removed until a sentence without digits is displayed. If Ouit is entered than the program will exit    
+    
+    do{
+        /* Function: Do-while loop
+         * Parameters: Looop will exit when boolean variable "continueOn" is false.
+         * Return: A shape with size of "length", or removes all digits from a sentence 
+         * Description: This function either generates a shape (square, triangle, or pentagon) based on length, or if a sentence
+         *              is entered, all the digits within the sentence are progressively removed until a sentence without digits
+         *              is displayed. If "Ouit" is choosen, then the program will exit.
     	 */
-        cout << "What shape would you like to create with a length of "<<length<<"?\n(1) Square\n(2) Triangle\n(3) Pentagon\n(4) Sentence\n(5) Quit\n\nChoose an option: ";
+        cout << "What shape would you like to create with a length of " << length << "?\n";
+        cout << "\n";
+        cout << "(1) Square\n";
+        cout << "(2) Triangle\n";
+        cout << "(3) Pentagon\n";
+        cout << "(4) Sentence\n";
+        cout << "(5) Quit\n";
+        cout << "\n";
+        cout << "Choose an option: ";
         cin >> userChoice;
-        choice = static_cast<Shape>(userChoice); // changes userChoice to a Shape type variable and inputed into choice
+        choice = static_cast<Shape>(userChoice); // changes "userChoice" to a Shape type variable and inputs into "choice"
         
-        /* seeded random number 33 to 64 inclusive */
+        // seeded random number 33 to 64 inclusive
         srand(time(0));
         signInt = (rand() % 32) + 33;
         signChar = signInt;
         
-        switch (choice){ // Switch statement that evaluates case based on enumerated variable
-            case Square: /* Generate a Square */
-                for(int k = 0; k < length; k++){
+        // Switch statement that evaluates case based on enumerated variable
+        switch (choice){
+            case Square: // Generate a Square
+                for(int numLineSq = 0; numLineSq < length; numLineSq++){
                     system("clear");
-                    for(int i = 0; i <= k; i++){ 
-                        for(int j = 0; j <= k; j++){ 
+                    for(int numRowSq = 0; numRowSq <= numLineSq; numRowSq++){ 
+                        for(int numColSq = 0; numColSq <= numLineSq; numColSq++){
                             cout << signChar;
                         }
                         cout << endl;
                     }
-                    sleep(1); //delay
+                    sleep(1); // delay
                 }
                 do{
-                    cout << "Would you like to continue? (Y/N): ";
+                    cout << "\nWould you like to continue? (Y/N): ";
                     cin >> next;
                     next = toupper(next);
                     if(next == 'Y'){
@@ -73,22 +87,23 @@ int main() {
                     else if(next == 'N'){
                         continueOn = false;
                     }
+                    system("clear");
                 }while(next!='Y'&&next!='N');
                 break;
-            case Triangle: /* Generate a Triangle */
+            case Triangle: // Generate a Triangle
                 system("clear");
-                for(int numLine = 1; numLine <= length; numLine++){
-                    for(int numRow = 0; numRow < length-numLine; numRow++){ /* rows */
+                for(int numLineTri = 1; numLineTri <= length; numLineTri++){
+                    for(int numRowTri = 0; numRowTri < length-numLineTri; numRowTri++){
                         cout << " ";
                     }
-                    for(int numCol = 0; numCol < ((2*numLine)-1); numCol++){ /* columns */
+                    for(int numColTri = 0; numColTri < ((2*numLineTri)-1); numColTri++){
                         cout << signChar;
                     }
                     cout << endl;
-                    sleep(1);
+                    sleep(1); // delay
                 }
                 do{
-                    cout << "Would you like to continue? (Y/N): ";
+                    cout << "\nWould you like to continue? (Y/N): ";
                     cin >> next;
                     next = toupper(next);
                     if(next == 'Y'){
@@ -97,32 +112,57 @@ int main() {
                     else if(next == 'N'){
                         continueOn = false;
                     }
+                    system("clear");
                 }while(next!='Y'&&next!='N');
                 break;
-            case Pentagon: /* Generate a Pentagon */
-	    system("clear");
-            for(int numLine = 1; numLine <= length; numLine++){
-            	for(int numRow = 0; numRow < length-numLine; numRow++){ /* rows */
-                	cout << " ";
-                }
-		    
-                for(int numCol = 0; numCol < ((2*numLine)-1); numCol++){ /* columns */
+            case Pentagon: // Generate a Pentagon
+                system("clear");
+                for(int numLinePenTri = 1; numLinePenTri <= length; numLinePenTri++){
+                    for(int numRowPenTri = 0; numRowPenTri < length-numLinePenTri; numRowPenTri++){
+                        cout << " ";
+                    }
+                    for(int numColPenTri = 0; numColPenTri < ((2*numLinePenTri)-1); numColPenTri++){
                         cout << signChar;
+                    }
+                    cout << endl;
+                    sleep(1); // delay
                 }
-	    cout << endl;
-	    sleep(1);
-	    }
-	    for(int k = 1; k < length; k++){
-            	for(int j = 0; j < ((length*2)-1) ; j++){ 
-                	cout << signChar;
-                 }
-                cout << endl;
-		sleep(1); //delay
-	     }
-	     break;
-            case Sentence: /* Sentence for animation */
+                for(int numLinePenSq = 1; numLinePenSq < length; numLinePenSq++){
+                    for(int numColPenSq = 0; numColPenSq < ((length*2)-1) ; numColPenSq++){
+                        cout << signChar;
+                    }
+                    cout << endl;
+                    sleep(1); // delay
+                }
+                do{
+                    cout << "\nWould you like to continue? (Y/N): ";
+                    cin >> next;
+                    next = toupper(next);
+                    if(next == 'Y'){
+                        continueOn = true;
+                    }
+                    else if(next == 'N'){
+                        continueOn = false;
+                    }
+                    system("clear");
+                }while(next!='Y'&&next!='N');
                 break;
-            case Quit: /* Ask user to continue program. If not, end program */
+            case Sentence: // Sentence for animation
+                /* type code here */
+                do{
+                    cout << "\nWould you like to continue? (Y/N): ";
+                    cin >> next;
+                    next = toupper(next);
+                    if(next == 'Y'){
+                        continueOn = true;
+                    }
+                    else if(next == 'N'){
+                        continueOn = false;
+                    }
+                    system("clear");
+                }while(next!='Y'&&next!='N');
+                break;
+            case Quit: // Ask user to continue program. If not, end program
                 do{
                     system("clear");
                     cout << "Are you sure you would like to quit the program? (Y/N): ";
@@ -130,6 +170,7 @@ int main() {
                     next = toupper(next);
                     if(next == 'Y'){
                         continueOn = false;
+                        system("clear");
                     }
                     else if(next == 'N'){
                         continueOn = true;
@@ -137,13 +178,14 @@ int main() {
                     }
                 }while(next!='Y'&&next!='N');
                 break;
-            default: /* Error message */
+            default: // Error message
                 cout << "\nInvalid input. Please enter a valid input.\n\n";
+                continueOn = true;
                 break;
         }
     }while(continueOn == true);
     
-    cout << "Goodbye!\n";
+    cout << "Closing 'Create a Shape' . . . Goodbye!\n";
     
     return 0;
 }
