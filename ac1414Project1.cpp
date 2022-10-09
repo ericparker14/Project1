@@ -13,6 +13,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <cctype>
+#include <string>
 using namespace std;
 
 int main() {
