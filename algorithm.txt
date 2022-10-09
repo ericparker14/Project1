@@ -17,19 +17,19 @@ insert algorithm here
   b. use the code for triangle case, then modify code for square case to display after the triangle case without incrementing (loop needs to go for length - 1)
   c. Ask user to contine - reevaluates boolean if input is no
 9. For (4) or Sentence: (Eric)
-1.Ask user to enter string
-2.Use cin.ignore() to allow for input
-3.Use get-line to get string input
-4.Clear the screen with system(“clear”)
-5.Create int variable linenum and initialize it to 0
-6.Create for loop to go through each character of the string input
-7.An if statement to determine if the character is a digit
-8.If it is a digit, then use erase() method to remove from string
-9.Create a delay for the animation using sleep()
-10.Take one off of i using i - - due to the index losing a number from the erase() function.
-11.Add 1 to the variable linenum so that its value can be used in a for loop
-12.Create a for loop to make a space each time a number is removed by setting l = 0, l < lineNum - 1 (in order to get correct index value), and l++ to increment through each element.
-13.After the for loop, cout the new user sentence with the number removed and it will continue to loop through until all numbers are removed
+   1.Ask user to enter string
+   2.Use cin.ignore() to allow for input
+   3.Use get-line to get string input
+   4.Clear the screen with system(“clear”)
+   5.Create int variable linenum and initialize it to 0
+   6.Create for loop to go through each character of the string input
+   7.An if statement to determine if the character is a digit
+   8.If it is a digit, then use erase() method to remove from string
+   9.Create a delay for the animation using sleep()
+   10.Take one off of i using i - - due to the index losing a number from the erase() function.
+   11.Add 1 to the variable linenum so that its value can be used in a for loop
+   12.Create a for loop to make a space each time a number is removed by setting l = 0, l < lineNum - 1 (in order    to get correct index value), and l++ to increment through each element.
+   13.After the for loop, cout the new user sentence with the number removed and it will continue to loop through    until all numbers are removed
 
 10. For (5) or Quit: (Amanda)
   a. Ask the user again if they would like to exit the program: if yes the program will exit, if no then the program will start again from the menu.
