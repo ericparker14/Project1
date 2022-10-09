@@ -148,12 +148,43 @@ int main() {
                 }while(next!='Y'&&next!='N');
                 break;
             case Sentence: // Sentence for animation
-                /* type code here */
+                cout << "Enter a sentence:" << endl; // Prompt user input
+		cin.ignore(); // allow for input to be read
+		getline(cin,usr_sentence);
+                enteredSent = usr_sentence;
+                system ("clear"); // clearing screen
+                // main loop    
+                lineNum = 0;
+                minVal = 0;
+            	for (i = 0; i < usr_sentence.size(); i++) // for every element of users input
+            	{                                         //this loop finds the minimum value in string 
+			if (isdigit(usr_sentence.at(i))) 
+                	{
+                    		usr_sentence.erase(i,1);
+                    		sleep(1);
+                    		system("clear");
+                    		i--;
+                    		lineNum ++;
+                    		for (l = 0; l < lineNum - 1; l++)
+                    		{
+                        		cout << endl;
+                    		}
+
+                    		cout << usr_sentence << endl;
+                	}
+                    	if (!(isdigit(minVal))) 
+                    	{	
+                        	continue;
+                   	}
+                
+            	}
+
+            
                 do{
                     cout << "\nWould you like to continue? (Y/N): ";
                     cin >> next;
                     next = toupper(next);
-                    if(next == 'Y'){
+                    if(next == 'Y'){ 
                         continueOn = true;
                     }
                     else if(next == 'N'){
