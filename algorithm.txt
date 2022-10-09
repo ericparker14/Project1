@@ -1,1 +1,22 @@
 insert algorithm here
+1. Declare integer length: Get length from user
+2. Declare enumeration constant Shape with values: Square = 1, Triangle = 2, Pentagon = 3, Sentence = 4, and Quit = 5
+3. Generate seeded integer between values 33-64 for signs used in animations
+4. Give enumarted values as choices and let user input a number that will be changed into the coresponding enumerate value (this is the menu)
+5. From point 4 to point _ this needs to be repeated until user says to exit - will use a boolean parameter in do-while loop.
+   Once boolean evaluates to false, the loop will exit and so will the program.
+6. For (1) or Square: (Amanda)
+  a. clear screen
+  b. display square of increasing size up to the inputted length
+    i. to increase size use a for loop to increment
+    ii. to move lines use a for loop to increment
+  c. Ask user to continue: if yes than continue, if no then reevaluate boolean to false to exit main loop
+7. For (2) or Triangle:(Angel)
+8. For (3) or Pentagon: (Amanda & Angel)
+  a. clear screen
+  b. use the code for triangle case, then modify code for square case to display after the triangle case without incrementing (loop needs to go for length - 1)
+  c. Ask user to contine - reevaluates boolean if input is no
+9. For (4) or Sentence: (Eric)
+10. For (5) or Quit: (Amanda)
+  a. Ask the user again if they would like to exit the program: if yes the program will exit, if no then the program will start again from the menu.
+11. When boolean evaluates to false the do-while loop and a good bye message is displayed and program will close.
