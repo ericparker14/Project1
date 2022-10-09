@@ -24,6 +24,10 @@ int main() {
     int userChoice;
     bool continueOn = true;
     char next;
+    string usr_sentence;
+    string enteredSent;
+    int minVal;
+    int i;
     
     system("clear");
     cout << "Welcome to 'Create a Shape'!\n";
@@ -149,6 +153,39 @@ int main() {
                 break;
             case Sentence: // Sentence for animation
                 /* type code here */
+                /* Sentence for animation */
+            cout << "Enter a sentence:" << endl; // Prompt user input
+            cin.ignore(); // allow for input to be read
+            getline(cin,usr_sentence);
+            enteredSent = usr_sentence;
+            system ("clear"); // clearing screen
+            // main loop    
+            minVal = 0;
+            for (i = 0; i < usr_sentence.size(); i++) // for every element of users input
+            {
+                if (isdigit(usr_sentence[i])) 
+                {
+                    if (usr_sentence[i] < minVal)
+                    {
+                    minVal = usr_sentence.at(i);
+                    }
+                    usr_sentence.erase(i, 1);
+                    sleep(1);
+                    i --;
+                    cout << usr_sentence << endl;
+                }
+                    if (!(isdigit((minVal)))) // if its not a digit or char at i index cout nothing
+
+                    {
+                        continue;
+                    }
+
+                }
+            
+                cout << "Entered sentence: " << enteredSent << endl; // last line on output
+                break;
+
+
                 do{
                     cout << "\nWould you like to continue? (Y/N): ";
                     cin >> next;
