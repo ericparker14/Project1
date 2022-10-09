@@ -20,3 +20,10 @@ insert algorithm here
 10. For (5) or Quit: (Amanda)
   a. Ask the user again if they would like to exit the program: if yes the program will exit, if no then the program will start again from the menu.
 11. When boolean evaluates to false the do-while loop and a good bye message is displayed and program will close.
+
+
+Note: Libraries to include:
+<iostream>
+<unistd.h>
+<cctype>
+<string>
